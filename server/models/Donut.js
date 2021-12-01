@@ -1,8 +1,6 @@
-const mongoose = require('mongoose');
+const { Schema, model } = require('mongoose');
 
-const { Schema } = mongoose;
-
-const donutsSchema = new Schema({
+const donutSchema = new Schema({
   name: {
     type: String,
     required: true,
@@ -28,9 +26,15 @@ const donutsSchema = new Schema({
     type: Schema.Types.ObjectId,
     ref: 'Type',
     required: true
-  }
+  },
+  reviews: [
+    {
+      type: Schema.Types.ObjectId,
+      ref: 'Review',
+    },
+  ],
 });
 
-const Donuts = mongoose.model('Donut', donutsSchema);
+const Donut = model('Donut', donutSchema);
 
-module.exports = Donuts;
+module.exports = Donut;

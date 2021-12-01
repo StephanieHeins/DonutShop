@@ -1,6 +1,4 @@
-const mongoose = require('mongoose');
-
-const { Schema } = mongoose;
+const { Schema, model } = require('mongoose');
 
 const typeSchema = new Schema({
   name: {
@@ -10,6 +8,6 @@ const typeSchema = new Schema({
   }
 });
 
-const Type = mongoose.model('Type', typeSchema);
+const Type = model('Type', typeSchema);
 
 module.exports = Type;
