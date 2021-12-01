@@ -1,8 +1,6 @@
-const mongoose = require('mongoose');
+const { Schema, model } = require('mongoose');
 
-const { Schema } = mongoose;
-
-const productSchema = new Schema({
+const donutSchema = new Schema({
   name: {
     type: String,
     required: true,
@@ -17,20 +15,26 @@ const productSchema = new Schema({
   price: {
     type: Number,
     required: true,
-    min: 0.99
+    min: 0.50
   },
   quantity: {
     type: Number,
     min: 0,
     default: 0
   },
-  category: {
+  type: {
     type: Schema.Types.ObjectId,
-    ref: 'Category',
+    ref: 'Type',
     required: true
-  }
+  },
+  reviews: [
+    {
+      type: Schema.Types.ObjectId,
+      ref: 'Review',
+    },
+  ],
 });
 
-const Product = mongoose.model('Product', productSchema);
+const Donut = model('Donut', donutSchema);
 
-module.exports = Product;
+module.exports = Donut;
