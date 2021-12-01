@@ -1,6 +1,6 @@
 const { Schema, model } = require('mongoose');
 
-const typeSchema = new Schema({
+const categorySchema = new Schema({
   name: {
     type: String,
     required: true,
@@ -8,6 +8,6 @@ const typeSchema = new Schema({
   }
 });
 
-const Type = model('Type', typeSchema);
+const Category = model('Category', categorySchema);
 
-module.exports = Type;
+module.exports = Category;

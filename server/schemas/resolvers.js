@@ -1,18 +1,18 @@
 const { AuthenticationError } = require('apollo-server-express');
-const { User, Donut, Type, Order, Review } = require('../models');
+const { User, Donut, Category, Order, Review } = require('../models');
 const { signToken } = require('../utils/auth');
 const stripe = require('stripe')('sk_test_4eC39HqLyjWDarjtT1zdp7dc');
 
 const resolvers = {
   Query: {
     types: async () => {
-      return await Type.find();
+      return await Category.find();
     },
-    donuts: async (parent, { type, name }) => {
+    donuts: async (parent, { category, name }) => {
       const params = {};
 
-      if (type) {
-        params.type = type;
+      if (category) {
+        params.category = category;
       }
 
       if (name) {
@@ -21,16 +21,16 @@ const resolvers = {
         };
       }
 
-      return await Donut.find(params).populate('type');
+      return await Donut.find(params).populate('category');
     },
     donut: async (parent, { _id }) => {
-      return await Donut.findById(_id).populate('type');
+      return await Donut.findById(_id).populate('category');
     },
     user: async (parent, args, context) => {
       if (context.user) {
         const user = await User.findById(context.user._id).populate({
           path: 'orders.donuts',
-          populate: 'type'
+          populate: 'category'
         });
 
         user.orders.sort((a, b) => b.purchaseDate - a.purchaseDate);
@@ -44,7 +44,7 @@ const resolvers = {
       if (context.user) {
         const user = await User.findById(context.user._id).populate({
           path: 'orders.donuts',
-          populate: 'type'
+          populate: 'category'
         });
 
         return user.orders.id(_id);

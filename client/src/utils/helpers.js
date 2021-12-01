@@ -12,7 +12,7 @@ export function idbPromise(storeName, method, object) {
     request.onupgradeneeded = function(e) {
       const db = request.result;
       db.createObjectStore('donut', { keyPath: '_id' });
-      db.createObjectStore('type', { keyPath: '_id' });
+      db.createObjectStore('category', { keyPath: '_id' });
       db.createObjectStore('cart', { keyPath: '_id' });
     };
 
