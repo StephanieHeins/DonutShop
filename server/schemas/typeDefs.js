@@ -27,7 +27,15 @@ const typeDefs = gql`
     firstName: String
     lastName: String
     email: String
+    reviews: [Review]
     orders: [Order]
+  }
+
+  type Review {
+    _id: ID
+    reviewAuthor: String
+    reviewText: String
+    createdAt: String
   }
 
   type Checkout {
@@ -41,6 +49,7 @@ const typeDefs = gql`
 
   type Query {
     categories: [Category]
+    reviews(product: ID, name: String): [Review]
     products(category: ID, name: String): [Product]
     product(_id: ID!): Product
     user: User
@@ -54,6 +63,8 @@ const typeDefs = gql`
     updateUser(firstName: String, lastName: String, email: String, password: String): User
     updateProduct(_id: ID!, quantity: Int!): Product
     login(email: String!, password: String!): Auth
+    addReview(productId: ID!, reviewText: String): Review
+    deleteReview(productId: ID!, reviewId: ID!): Review
   }
 `;
 
