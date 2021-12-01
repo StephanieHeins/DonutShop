@@ -30,41 +30,65 @@ function Login(props) {
   };
 
   return (
-    <div className="container my-1">
-      <Link to="/signup">← Go to Signup</Link>
+  <div>
+    <div>
+    <div className="container">
 
-      <h2>Login</h2>
+      <div className="column is-one-fifth is-offset-one-fifth">
+        <Link to="/signup">← Signup</Link>
+      </div>
+
+      <div className="has-text-centered is-size-3">
+        Login
+      </div>
+
       <form onSubmit={handleFormSubmit}>
-        <div className="flex-row space-between my-2">
-          <label htmlFor="email">Email address:</label>
-          <input
-            placeholder="youremail@test.com"
+      <div className="column is-three-fifths is-offset-one-fifth is-vcentered">
+        <div class="field">
+          <label htmlFor="email" class="label">Email</label>
+            <div class="control">
+            <input 
+            className="input"
+            placeholder="bob@test.com"
             name="email"
             type="email"
             id="email"
             onChange={handleChange}
-          />
+            />
+          </div>
         </div>
-        <div className="flex-row space-between my-2">
-          <label htmlFor="pwd">Password:</label>
-          <input
+      </div>
+
+      <div className="column is-three-fifths is-offset-one-fifth is-vcentered">
+        <div class="field">
+          <label htmlFor="pwd" class="label">Password</label>
+            <div class="control">
+            <input
+            className="input"
             placeholder="******"
             name="password"
             type="password"
             id="pwd"
             onChange={handleChange}
-          />
+            />
+          </div>
         </div>
-        {error ? (
+      </div>
+
+      {error ? (
           <div>
             <p className="error-text">The provided credentials are incorrect</p>
           </div>
         ) : null}
-        <div className="flex-row flex-end">
-          <button type="submit">Submit</button>
+
+        <div class="buttons is-centered">
+          <button type="submit" className="button is-primary">Submit</button>
         </div>
+
       </form>
     </div>
+    </div>
+  </div>
   );
 }
 

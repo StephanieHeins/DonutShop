@@ -43,9 +43,15 @@ function TypeMenu() {
 
   return (
     <div>
+<<<<<<< HEAD:client/src/components/CategoryMenu/index.js
+      <h2 className="is-size-4">Choose a Category:</h2>
+      {categories.map((item) => (
+        <button className="button is-primary mr-2 my-3"
+=======
       <h2>Choose a Category:</h2>
       {types.map((item) => (
         <button
+>>>>>>> origin:client/src/components/TypeMenu/index.js
           key={item._id}
           onClick={() => {
             handleClick(item._id);

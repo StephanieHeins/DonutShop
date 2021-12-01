@@ -31,56 +31,88 @@ function Signup(props) {
   };
 
   return (
-    <div className="container my-1">
-      <Link to="/login">← Go to Login</Link>
+  <div>
+    <div className="container">
 
-      <h2>Signup</h2>
+      <div className="column is-one-fifth is-offset-one-fifth">
+      <Link to="/login">← Login</Link>
+      </div>
+
+      <div className="has-text-centered is-size-3">
+        Signup
+      </div>
+
       <form onSubmit={handleFormSubmit}>
-        <div className="flex-row space-between my-2">
-          <label htmlFor="firstName">First Name:</label>
-          <input
-            placeholder="First"
+      <div className="column is-three-fifths is-offset-one-fifth is-vcentered">
+        <div className="field">
+          <label htmlFor="firstName" className="label">First Name</label>
+            <div className="control">
+              <input 
+            className="input"
+            placeholder="Bob"
             name="firstName"
             type="firstName"
             id="firstName"
             onChange={handleChange}
-          />
+            />
+          </div>
         </div>
-        <div className="flex-row space-between my-2">
-          <label htmlFor="lastName">Last Name:</label>
-          <input
-            placeholder="Last"
+      </div>
+
+      <div className="column is-three-fifths is-offset-one-fifth is-vcentered">
+        <div className="field">
+          <label htmlFor="lastName" className="label">Last Name</label>
+            <div className="control">
+            <input
+            className="input"
+            placeholder="Boblast"
             name="lastName"
             type="lastName"
             id="lastName"
             onChange={handleChange}
-          />
+            />
+          </div>
         </div>
-        <div className="flex-row space-between my-2">
-          <label htmlFor="email">Email:</label>
-          <input
-            placeholder="youremail@test.com"
+      </div>
+
+      <div className="column is-three-fifths is-offset-one-fifth is-vcentered">
+        <div class="field">
+          <label htmlFor="email" class="label">Email</label>
+            <div class="control">
+            <input 
+            className="input"
+            placeholder="bob@test.com"
             name="email"
             type="email"
             id="email"
             onChange={handleChange}
-          />
+            />
+          </div>
         </div>
-        <div className="flex-row space-between my-2">
-          <label htmlFor="pwd">Password:</label>
-          <input
+      </div>
+
+      <div className="column is-three-fifths is-offset-one-fifth is-vcentered">
+        <div class="field">
+          <label htmlFor="pwd" class="label">Password</label>
+            <div class="control">
+            <input
+            className="input"
             placeholder="******"
             name="password"
             type="password"
             id="pwd"
             onChange={handleChange}
-          />
+            />
+          </div>
         </div>
-        <div className="flex-row flex-end">
-          <button type="submit">Submit</button>
-        </div>
+      </div>
+
+      <div class="buttons is-centered">
+        <button type="submit" className="button is-primary">Submit</button>
+      </div>
       </form>
     </div>
+  </div>
   );
 }
 
