@@ -8,43 +8,43 @@ import {
 import { QUERY_CATEGORIES } from '../../utils/queries';
 import { idbPromise } from '../../utils/helpers';
 
-function CategoryMenu() {
+function TypeMenu() {
   const [state, dispatch] = useStoreContext();
 
-  const { categories } = state;
+  const {types} = state;
 
-  const { loading, data: categoryData } = useQuery(QUERY_CATEGORIES);
+  const { loading, data: typeData } = useQuery(QUERY_CATEGORIES);
 
   useEffect(() => {
-    if (categoryData) {
+    if (typeData) {
       dispatch({
         type: UPDATE_CATEGORIES,
-        categories: categoryData.categories,
+        categories: typeData.types,
       });
-      categoryData.categories.forEach((category) => {
-        idbPromise('categories', 'put', category);
+      typeData.types.forEach((type) => {
+        idbPromise('types', 'put', type);
       });
     } else if (!loading) {
-      idbPromise('categories', 'get').then((categories) => {
+      idbPromise('types', 'get').then((types) => {
         dispatch({
           type: UPDATE_CATEGORIES,
-          categories: categories,
+          types: types,
         });
       });
     }
-  }, [categoryData, loading, dispatch]);
+  }, [typeData, loading, dispatch]);
 
   const handleClick = (id) => {
     dispatch({
       type: UPDATE_CURRENT_CATEGORY,
-      currentCategory: id,
+      currentType: id,
     });
   };
 
   return (
     <div>
       <h2>Choose a Category:</h2>
-      {categories.map((item) => (
+      {types.map((item) => (
         <button
           key={item._id}
           onClick={() => {
@@ -58,4 +58,4 @@ function CategoryMenu() {
   );
 }
 
-export default CategoryMenu;
+export default TypeMenu;
