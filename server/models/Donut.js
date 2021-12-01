@@ -22,9 +22,9 @@ const donutSchema = new Schema({
     min: 0,
     default: 0
   },
-  type: {
+  category: {
     type: Schema.Types.ObjectId,
-    ref: 'Type',
+    ref: 'Category',
     required: true
   },
   reviews: [

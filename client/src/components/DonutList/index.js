@@ -10,7 +10,7 @@ import spinner from '../../assets/spinner.gif';
 function DonutList() {
   const [state, dispatch] = useStoreContext();
 
-  const { currentType } = state;
+  const { currentCategory } = state;
 
   const { loading, data } = useQuery(QUERY_PRODUCTS);
 
@@ -34,12 +34,12 @@ function DonutList() {
   }, [data, loading, dispatch]);
 
   function filterProducts() {
-    if (!currentType) {
+    if (!currentCategory) {
       return state.donuts;
     }
 
     return state.donuts.filter(
-      (donut) => donut.type_id === currentType
+      (donut) => donut.type_id === currentCategory
     );
   }
 
