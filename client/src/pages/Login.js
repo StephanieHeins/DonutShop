@@ -30,6 +30,7 @@ function Login(props) {
   };
 
   return (
+  <div>
     <div className="container my-1">
       <Link to="/signup">← Go to Signup</Link>
 
@@ -65,6 +66,41 @@ function Login(props) {
         </div>
       </form>
     </div>
+
+    <div>
+    <div className="container">
+
+      <div className="column is-one-fifth is-offset-one-fifth">
+        <Link to="/signup">← Signup</Link>
+      </div>
+
+      <div className="has-text-centered is-size-3">
+        Login
+      </div>
+
+      <form onSubmit={handleFormSubmit}>
+      <div className="column is-three-fifths is-offset-one-fifth is-vcentered">
+        <div class="field">
+          <label htmlFor="email" class="label">Email</label>
+            <div class="control">
+            <input 
+            className="input"
+            placeholder="bob@test.com"
+            name="email"
+            type="email"
+            id="email"
+            onChange={handleChange}
+            />
+          </div>
+        </div>
+      </div>
+
+
+    </form>
+    </div>
+    </div>
+
+  </div>
   );
 }
 
