@@ -1,11 +1,11 @@
 const db = require('./connection');
-const { User, Donut, Type, Review } = require('../models');
+const { User, Donut, Category, Review } = require('../models');
 
 
 db.once('open', async() => {
-    await Type.deleteMany();
+    await Category.deleteMany();
 
-    const types = await Type.insertMany([
+    const categories = await Category.insertMany([
         { name: 'Holes'},
         { name: 'Sugar'},
         { name: 'Powder'},
@@ -26,7 +26,7 @@ db.once('open', async() => {
             name: 'Maple Bar',
             description: 'This is a maple bar',
             image: '',
-            type: types[8]._id,
+            category: categories[8]._id,
             price: 2.99,
             quantity: 12,
             reviews: []
@@ -35,7 +35,7 @@ db.once('open', async() => {
             name: 'Glazed Donut',
             description: "This is a cop's favorite donut",
             image: '',
-            type: types[3].id,
+            category: categories[3].id,
             price: 1.99,
             quantity: 12,
             reviews: []
@@ -44,7 +44,7 @@ db.once('open', async() => {
             name: 'Strawberry Filled Donut',
             description: 'A donut with delicious strawberry jelly filling',
             image: '',
-            type: types[4]._id,
+            category: categories[4]._id,
             price: 3.99,
             quantity: 12,
             reviews: []
@@ -53,7 +53,7 @@ db.once('open', async() => {
             name: 'Chocolate Sprinkle Donut',
             description: 'A basic donut with chocolate frosting and sprinkles',
             image: '',
-            type: types[6]._id,
+            category: categories[6]._id,
             price: 2.99,
             quantity: 12,
             reviews: []
@@ -62,7 +62,7 @@ db.once('open', async() => {
             name: 'Matcha Mochi',
             description: 'Classic Mochi Donut',
             image: '',
-            type: types[5]._id,
+            category: categories[5]._id,
             price: 5.99,
             quantity: 12,
             reviews: []
