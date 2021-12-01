@@ -136,8 +136,38 @@ const resolvers = {
       const token = signToken(user);
 
       return { token, user };
-    }
-  }
+    },
+    addReview: async (parent, {donutId, reviewText}, context) =>{
+      if (context.user){
+        const review = await Review.create({
+          reviewText,
+          reviewAuthor: context.user.email,
+        });
+
+        await Donut.findOneAndUpdate(
+          {_id: donutId},
+          { $addToSet: { reviews: review._id} }
+        );  
+        return review;
+    };
+  },
+    deleteReview: async (parent, {donutId, reviewId}, context) => {
+      if (context.user){
+        const review = await Review.findOneAndDelete({
+          _id: reviewId,
+          reviewAuthor: context.user.email,
+        });
+
+      await Donut.findOneAndUpdate(
+        {_id: donutId},
+        { $pull: { reviews: review._id}}
+      );  
+
+      return review;
+    ;}
+  },
+
+  },
 };
 
 module.exports = resolvers;
