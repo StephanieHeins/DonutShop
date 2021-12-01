@@ -17,29 +17,33 @@ First, clone this repository. Navigate to the directory containing repository in
 * Javascript
 * [Node JS](https://nodejs.org/en/)
 * [Express](https://www.npmjs.com/package/express)
-* [Sequelize](https://www.npmjs.com/package/sequelize)
-* [MySQL](https://www.npmjs.com/package/mysql)
-* [DotEnv](https://www.npmjs.com/package/dotenv)
+* [React](https://www.npmjs.com/package/react)
+* [Mongo DB](https://www.npmjs.com/package/mongodb)
+* [GraphQL](https://graphql.org/)
+* [JWT](https://www.npmjs.com/package/jsonwebtoken)
 
 
 
 ## Deployed Links:
-* [Link to GitHub Repo](https://github.com/egraham96/E-Commerce-Back-End)
+* [Link to GitHub Repo](https://github.com/StephanieHeins/DonutShop)
+* [Link to Heroku Deployed Application](https://github.com/StephanieHeins/DonutShop)
 
 ## Preview of Working Application:
-![Video of Deployed Application](./Assets/ScreenshotofDeployedApplication.PNG)
+![Screenshot of Deployed Application](./Assets/ScreenshotofDeployedApplication.PNG)
+![Screenshot of Deployed Application2](./Assets/ScreenshotofDeployedApplication.PNG)
+![Screenshot of Deployed Application3](./Assets/ScreenshotofDeployedApplication.PNG)
 
 ## How to Contribute:
 If you'd like to contribute to this project please send an email to eegraham4@gmail.com. Thank you for your interest!
 
 ## How to Test the Application:
-Please see the installation instructions above. 
+Please see the installation instructions above. Also, feel free to test the application via the Heroku link. 
 
 ## License:
 
 ![](https://img.shields.io/badge/License:%20MIT-pink`)
 
-Copyright 2021 Emma Graham
+Copyright 2021 Steven Chung, Troy Atkinson, Emma Graham, Stephanie Heins
 
 Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
 
