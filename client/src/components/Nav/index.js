@@ -11,7 +11,7 @@ function Nav() {
       <div>
         <div className="navbar is-primary mb-5">
           <div className="navbar-item is-size-4 ml-3 has-text-weight-bold">
-            HTDonuts
+            HTProducts
           </div>
 
           <Link to="/" className="navbar-item ml-5">
@@ -34,7 +34,7 @@ function Nav() {
       <div>
         <div className="navbar is-primary mb-5">
         <div className="navbar-item is-size-4 ml-3 has-text-weight-bold">
-            HTDonuts
+            HTProducts
         </div>
 
         <Link to="/" className="navbar-item ml-5">

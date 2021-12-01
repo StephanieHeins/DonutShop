@@ -1,14 +1,14 @@
 const { AuthenticationError } = require('apollo-server-express');
-const { User, Donut, Category, Order, Review } = require('../models');
+const { User, Product, Category, Order, Review } = require('../models');
 const { signToken } = require('../utils/auth');
 const stripe = require('stripe')('sk_test_4eC39HqLyjWDarjtT1zdp7dc');
 
 const resolvers = {
   Query: {
-    types: async () => {
+    categories: async () => {
       return await Category.find();
     },
-    donuts: async (parent, { category, name }) => {
+    products: async (parent, { category, name }) => {
       const params = {};
 
       if (category) {
@@ -21,15 +21,15 @@ const resolvers = {
         };
       }
 
-      return await Donut.find(params).populate('category');
+      return await Product.find(params).populate('category');
     },
-    donut: async (parent, { _id }) => {
-      return await Donut.findById(_id).populate('category');
+    product: async (parent, { _id }) => {
+      return await Product.findById(_id).populate('category');
     },
     user: async (parent, args, context) => {
       if (context.user) {
         const user = await User.findById(context.user._id).populate({
-          path: 'orders.donuts',
+          path: 'orders.products',
           populate: 'category'
         });
 
@@ -43,7 +43,7 @@ const resolvers = {
     order: async (parent, { _id }, context) => {
       if (context.user) {
         const user = await User.findById(context.user._id).populate({
-          path: 'orders.donuts',
+          path: 'orders.products',
           populate: 'category'
         });
 
@@ -57,7 +57,7 @@ const resolvers = {
       const order = new Order({ products: args.products });
       const line_items = [];
 
-      const { products } = await order.populate('donuts').execPopulate();
+      const { products } = await order.populate('products').execPopulate();
 
       for (let i = 0; i < products.length; i++) {
         const product = await stripe.products.create({
@@ -115,10 +115,10 @@ const resolvers = {
 
       throw new AuthenticationError('Not logged in');
     },
-    updateDonut: async (parent, { _id, quantity }) => {
+    updateProduct: async (parent, { _id, quantity }) => {
       const decrement = Math.abs(quantity) * -1;
 
-      return await Donut.findByIdAndUpdate(_id, { $inc: { quantity: decrement } }, { new: true });
+      return await Product.findByIdAndUpdate(_id, { $inc: { quantity: decrement } }, { new: true });
     },
     login: async (parent, { email, password }) => {
       const user = await User.findOne({ email });
@@ -137,29 +137,29 @@ const resolvers = {
 
       return { token, user };
     },
-    addReview: async (parent, {donutId, reviewText}, context) =>{
+    addReview: async (parent, {productId, reviewText}, context) =>{
       if (context.user){
         const review = await Review.create({
           reviewText,
           reviewAuthor: context.user.email,
         });
 
-        await Donut.findOneAndUpdate(
-          {_id: donutId},
+        await Product.findOneAndUpdate(
+          {_id: productId},
           { $addToSet: { reviews: review._id} }
         );  
         return review;
     };
   },
-    deleteReview: async (parent, {donutId, reviewId}, context) => {
+    deleteReview: async (parent, {productId, reviewId}, context) => {
       if (context.user){
         const review = await Review.findOneAndDelete({
           _id: reviewId,
           reviewAuthor: context.user.email,
         });
 
-      await Donut.findOneAndUpdate(
-        {_id: donutId},
+      await Product.findOneAndUpdate(
+        {_id: productId},
         { $pull: { reviews: review._id}}
       );  
 

@@ -1,11 +1,11 @@
 const db = require('./connection');
-const { User, Donut, Type, Review } = require('../models');
+const { User, Product, Category, Review } = require('../models');
 
 
 db.once('open', async() => {
-    await Type.deleteMany();
+    await Category.deleteMany();
 
-    const types = await Type.insertMany([
+    const categories = await Category.insertMany([
         { name: 'Holes'},
         { name: 'Sugar'},
         { name: 'Powder'},
@@ -19,57 +19,57 @@ db.once('open', async() => {
 
     console.log('categories seeded');
 
-    await Donut.deleteMany();
+    await Product.deleteMany();
 
-    const donuts = await Donut.insertMany([
+    const products = await Product.insertMany([
         {
             name: 'Maple Bar',
             description: 'This is a maple bar',
             image: '',
-            type: types[8]._id,
+            category: categories[8]._id,
             price: 2.99,
             quantity: 12,
             reviews: []
         },
         {
-            name: 'Glazed Donut',
-            description: "This is a cop's favorite donut",
+            name: 'Glazed Product',
+            description: "This is a cop's favorite product",
             image: '',
-            type: types[3].id,
+            category: categories[3].id,
             price: 1.99,
             quantity: 12,
             reviews: []
         },
         {
-            name: 'Strawberry Filled Donut',
-            description: 'A donut with delicious strawberry jelly filling',
+            name: 'Strawberry Filled Product',
+            description: 'A product with delicious strawberry jelly filling',
             image: '',
-            type: types[4]._id,
+            category: categories[4]._id,
             price: 3.99,
             quantity: 12,
             reviews: []
         },
         {
-            name: 'Chocolate Sprinkle Donut',
-            description: 'A basic donut with chocolate frosting and sprinkles',
+            name: 'Chocolate Sprinkle Product',
+            description: 'A basic product with chocolate frosting and sprinkles',
             image: '',
-            type: types[6]._id,
+            category: categories[6]._id,
             price: 2.99,
             quantity: 12,
             reviews: []
         },
         {
             name: 'Matcha Mochi',
-            description: 'Classic Mochi Donut',
+            description: 'Classic Mochi Product',
             image: '',
-            type: types[5]._id,
+            category: categories[5]._id,
             price: 5.99,
             quantity: 12,
             reviews: []
         }
 ]);
 
-console.log('donuts seeded');
+console.log('products seeded');
 
 await User.deleteMany();
 
@@ -80,7 +80,7 @@ await User.create({
     password: '123456',
     orders: [
         {
-            donuts: [donuts[0]._id, donuts[1]._id]
+            products: [products[0]._id, products[1]._id]
         }
     ]
 });
@@ -88,11 +88,11 @@ await User.create({
 await User.create({
     firstName: 'Dough',
     lastName: 'Nuts',
-    email: 'doeyjoey@donuts.com',
+    email: 'doeyjoey@products.com',
     password: '123456',
     orders: [
         {
-            donuts: [donuts[1]._id, donuts[4]._id]
+            products: [products[1]._id, products[4]._id]
         }
     ]
 });
@@ -100,11 +100,11 @@ await User.create({
 await User.create({
     firstName: 'Jough',
     lastName: 'Nuts',
-    email: 'joeydoey@donuts.com',
+    email: 'joeydoey@products.com',
     password: '123456',
     orders: [
         {
-            donuts: [donuts[3]._id, donuts[2]._id]
+            products: [products[3]._id, products[2]._id]
         }
     ]
 });

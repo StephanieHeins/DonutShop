@@ -1,10 +1,10 @@
-# Final Project-Hometown Donut Shop
+# Final Project-Hometown Product Shop
 ![Logo](client/public/HDLogo.png)
 
 ## Description:
 For the final project of the course, we were tasked with creating a collaborative MERN stack single-page application, featuring a scalable MongoDB back end, a GraphQL API, and an Express.js and Node.js server with a React front end. We were also required to implement user authentication with JWT to build a user-focused platform. 
 
-Our group decided to create an E-Commerce Platform for a local donut shop: Hometown Donuts. Our application allows users to browse the donut offerings of the store (which includes a photo of each donut along with its price, description and customer reviews) without signing up or logging into the platform. If a visitor to the site would like to purchase any donut(s) or post their review of one of the donuts, they will need to create an account and be logged into the platform. 
+Our group decided to create an E-Commerce Platform for a local product shop: Hometown Products. Our application allows users to browse the product offerings of the store (which includes a photo of each product along with its price, description and customer reviews) without signing up or logging into the platform. If a visitor to the site would like to purchase any product(s) or post their review of one of the products, they will need to create an account and be logged into the platform. 
 
 ## Installation Instructions:
 First, clone this repository. Navigate to the directory containing repository in your terminal. 
@@ -26,8 +26,8 @@ First, clone this repository. Navigate to the directory containing repository in
 
 
 ## Deployed Links:
-* [Link to GitHub Repo](https://github.com/StephanieHeins/DonutShop)
-* [Link to Heroku Deployed Application](https://github.com/StephanieHeins/DonutShop)
+* [Link to GitHub Repo](https://github.com/StephanieHeins/ProductShop)
+* [Link to Heroku Deployed Application](https://github.com/StephanieHeins/ProductShop)
 
 ## Preview of Working Application:
 ![Screenshot of Deployed Application](./Assets/ScreenshotofDeployedApplication.PNG)
