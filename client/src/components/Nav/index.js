@@ -5,53 +5,60 @@ import { Link } from "react-router-dom";
 function Nav() {
 
   function showNavigation() {
+
     if (Auth.loggedIn()) {
       return (
-        <ul className="flex-row">
-          <li className="mx-1">
-            <Link to="/orderHistory">
-              Order History
-            </Link>
-          </li>
-          <li className="mx-1">
-            {/* this is not using the Link component to logout or user and then refresh the application to the start */}
-            <a href="/" onClick={() => Auth.logout()}>
-              Logout
-            </a>
-          </li>
-        </ul>
+      <div>
+        <div className="navbar is-primary mb-5">
+          <div className="navbar-item is-size-4 ml-3 has-text-weight-bold">
+            HTDonuts
+          </div>
+
+          <Link to="/" className="navbar-item ml-5">
+            Home 
+          </Link>
+
+          <Link to="/orderHistory" className="navbar-item ml-2">
+            Orders 
+          </Link>
+
+          <a href="/" className="navbar-item ml-2" onClick={() => Auth.logout()}>
+            Logout
+          </a>
+
+        </div>
+      </div>
       );
     } else {
       return (
-        <ul className="flex-row">
-          <li className="mx-1">
-            <Link to="/signup">
-              Signup
-            </Link>
-          </li>
-          <li className="mx-1">
-            <Link to="/login">
-              Login
-            </Link>
-          </li>
-        </ul>
+      <div>
+        <div className="navbar is-primary mb-5">
+        <div className="navbar-item is-size-4 ml-3 has-text-weight-bold">
+            HTDonuts
+        </div>
+
+        <Link to="/" className="navbar-item ml-5">
+          Home 
+        </Link>
+        
+        <Link to="/signup" className="navbar-item ml-2">
+          Signup
+        </Link>
+
+        <Link to="/login" className="navbar-item ml-2">
+          Login
+        </Link>
+        </div>
+      </div>
       );
     }
   }
 
   return (
-    <header className="flex-row px-1">
-      <h1>
-        <Link to="/">
-          <span role="img" aria-label="shopping bag">🛍️</span>
-          -Shop-Shop
-        </Link>
-      </h1>
 
       <nav>
         {showNavigation()}
       </nav>
-    </header>
   );
 }
 
