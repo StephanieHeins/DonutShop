@@ -1,5 +1,5 @@
 # Final Project-Hometown Donut Shop
-![Hometown Donut Shop Logo](./public/HometownDonutsLogo.PNG)
+![Hometown Donut Shop Logo](./client/public/HometownDonutsLogo.PNG)
 
 ## Description:
 For the final project of the course, we were tasked with creating a collaborative MERN stack single-page application, featuring a scalable MongoDB back end, a GraphQL API, and an Express.js and Node.js server with a React front end. We were also required to implement user authentication with JWT to build a user-focused platform. 
