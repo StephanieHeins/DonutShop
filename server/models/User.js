@@ -17,6 +17,7 @@ const userSchema = new Schema({
     type: String,
     required: true,
     unique: true,
+
     match: [/.+@.+\..+/, 'Must match an email address!']
   },
   password: {
@@ -24,6 +25,12 @@ const userSchema = new Schema({
     required: true,
     minlength: 5
   },
+  reviews: [
+    {
+      type: Schema.Types.ObjectId,
+      ref: 'Review',
+    },
+  ],
   orders: [Order.schema]
 });
 
