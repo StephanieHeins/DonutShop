@@ -1,6 +1,6 @@
 const User = require('./User');
-const Donuts = require('./Donuts');
+const Donut = require('./Donut');
 const Type = require('./Type');
 const Order = require('./Order');
 
-module.exports = { User, Donuts, Type, Order };
+module.exports = { User, Donut, Type, Order };
