@@ -21,7 +21,7 @@ app.use(express.json());
 
 //This needs to e changed to correct directory
 // Serve up static assets
-app.use('/images', express.static(path.join(__dirname, '../client/images')));
+app.use('/images', express.static(path.join(__dirname, '../client/public/images')));
 
 if (process.env.NODE_ENV === 'production') {
   app.use(express.static(path.join(__dirname, '../client/build')));
@@ -29,7 +29,7 @@ if (process.env.NODE_ENV === 'production') {
 
 //This needs to be changed to correct directory
 app.get('*', (req, res) => {
-  res.sendFile(path.join(__dirname, '../client/build/index.html'));
+  res.sendFile(path.join(__dirname, '../client/public/index.html'));
 });
 
 db.once('open', () => {

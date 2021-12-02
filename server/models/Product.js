@@ -27,6 +27,9 @@ const productSchema = new Schema({
     ref: 'Category',
     required: true
   },
+  rating: {
+    star: Number,
+  },
   reviews: [
     {
       reviewText: {

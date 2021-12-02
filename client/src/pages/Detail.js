@@ -86,7 +86,6 @@ function Detail() {
   };
 
 
-
 return (
     <>
   <div className="container">    
@@ -142,6 +141,7 @@ return (
         <div className="buttons is-centered"> 
           <StarRating/>
         </div>
+
           <ReviewForm productId = {currentProduct._id}/>
 
           <div className="columns">
