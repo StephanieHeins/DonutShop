@@ -1,5 +1,6 @@
 const { Schema, model } = require('mongoose');
 const dateFormat = require('../utils/dateFormat');
+const Product = require('./Product')
 
 
 const reviewSchema = new Schema({
@@ -18,7 +19,9 @@ const reviewSchema = new Schema({
         type: Date,
         default: Date.now,
         get: (timestamp) => dateFormat(timestamp),
-    }
+    },
+    product: [Product.Schema]
+
 });
 
 

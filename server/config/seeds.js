@@ -26,7 +26,7 @@ db.once('open', async() => {
         {
             name: 'Maple Bar',
             description: 'This is a maple bar',
-            image: '',
+            image: 'Maplebar.jpg',
             category: categories[8]._id,
             price: 2.99,
             quantity: 12,

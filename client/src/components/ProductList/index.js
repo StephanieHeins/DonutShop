@@ -39,7 +39,7 @@ function ProductList() {
     }
 
     return state.products.filter(
-      (product) => product.type_id === currentCategory
+      (product) => product.category._id === currentCategory
     );
   }
 
