@@ -49,3 +49,19 @@ export const ADD_USER = gql`
     }
   }
 `;
+
+export const ADD_REVIEW = gql`
+  mutation addReview($productId: ID!, $reviewText: String!){
+    addReview(productId: $productId, reviewText: $reviewText){
+      _id
+      name
+      description
+      image
+      reviews{
+        reviewAuthor
+        reviewText
+        createdAt
+      }
+    }
+  }
+`;
