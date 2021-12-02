@@ -71,27 +71,33 @@ const Cart = () => {
   }
 
   return (
-    <div className="cart">
-      <div className="close" onClick={toggleCart}>
-        [close]
+    <div className="cart my-5 mx-5">
+      <div className="close has-text-danger has-text-weight-bold" onClick={toggleCart}>
+        [ X ]
       </div>
-      <h2>Shopping Cart</h2>
+      <h2 className="has-text-weight-bold has-text-centered">
+        ~ C A R T 🛒 ~
+      </h2>
       {state.cart.length ? (
         <div>
           {state.cart.map((item) => (
             <CartItem key={item._id} item={item} />
           ))}
 
-          <div className="flex-row space-between">
-            <strong>Total: ${calculateTotal()}</strong>
+          <div className="has-text-weight-bold has-text-centered">
+          <strong>Total: ${calculateTotal()}</strong>
+          </div>
 
             {Auth.loggedIn() ? (
-              <button onClick={submitCheckout}>Checkout</button>
+              <div className="buttons is-centered">
+              <button className="button is-primary mt-3" onClick={submitCheckout}>
+                Checkout
+              </button>
+              </div>
             ) : (
-              <span>(log in to check out)</span>
+              <span>(Log in to check out)</span>
             )}
           </div>
-        </div>
       ) : (
         <h3>
           <span role="img" aria-label="shocked">

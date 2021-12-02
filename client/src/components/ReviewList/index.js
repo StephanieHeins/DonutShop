@@ -7,22 +7,30 @@ if (!reviews.length) {
 
 return (
     <>
-    <h3 className="" style={{}}>
-        Reviews
-    </h3>
+
     <div className="">
         {reviews &&
         reviews.map((review) => (
+
             <div key={review._id} className="">
-            <div className="">
-                <h5 className="">
-                {review.reviewAuthor}: {' '}
-                    <span style={{}}>
-                        Date of Review: {review.reviewDate}
-                    </span>
-                </h5>
-                <p className="">{review.reviewText}</p>
-            </div>
+
+            <div className="container">
+                    <div className="columns">
+                        <div className="column is-half is-offset-one-quarter">
+                            <div className="has-text-left">
+                                Review by {review.reviewAuthor}: {' '}
+                            </div>
+                            <div className="card has-background-grey-lighter">
+                                <div className="card-content">
+                                {review.reviewText}
+                                </div>
+                            </div>
+                            <div className="has-text-right">
+                                {review.createdAt}
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         ))}
     </div>

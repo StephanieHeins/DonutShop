@@ -86,41 +86,74 @@ function Detail() {
 
 
 
-  return (
+return (
     <>
+  <div className="container">    
+
       {currentProduct && cart ? (
-        <div className="container my-1">
-          <Link to="/">← Back to Products</Link>
-
-          <h2>{currentProduct.name}</h2>
-
-          <p>{currentProduct.description}</p>
-
-          <p>
-            <strong>Price:</strong>${currentProduct.price}{' '}
-            <button onClick={addToCart}>Add to Cart</button>
-            <button
-              disabled={!cart.find((p) => p._id === currentProduct._id)}
-              onClick={removeFromCart}
-            >
-              Remove from Cart
-            </button>
-          </p>
+        <div>
+          <Link to="/" className="mx-5">← Products</Link>
           
-          <img
-            src={`/images/${currentProduct.image}`}
-            alt={currentProduct.name}
-          />
+          <div className="columns">
+            <div className="column is-half is-offset-one-quarter">
+              <div className="buttons is-centered">
+                <button className="button is-primary"onClick={addToCart}>
+                  Add to Cart
+                </button>
+                <button className="button is-danger"
+                  disabled={!cart.find((p) => p._id === currentProduct._id)}
+                  onClick={removeFromCart}
+                >
+                  Remove from Cart
+                </button>
+              </div>
 
-          <ReviewList reviews={currentProduct.reviews} />
-          <ReviewForm productId={currentProduct._id}/>
+          <div className="card">
+            <header className="card-header">
+              <p className="card-header-title is-size-4">
+                {currentProduct.name}
+              </p>
+              <span>
+                <p className="card-header-title is-size-4">
+                  $ {currentProduct.price}{' '}
+                </p>
+              </span>
+            </header>
 
+            <div class="card-content">
+              <div class="content">
+                <p>{currentProduct.description}</p>
+              </div>
+            </div>
+
+            <div className="card-image">
+              <figure className="image is-256x256">
+                <img
+                  alt={currentProduct.name}
+                  src={`/images/${currentProduct.image}`}
+                />
+              </figure>
+            </div>
+            </div>
+          </div>
         </div>
-      
+          
+          <ReviewForm />
+
+          <div className="columns">
+            <div className="column is-half is-offset-one-quarter has-text-weight-bold">
+              Reviews: 
+            </div>
+          </div>
+          
+          <ReviewList />
+
+      </div>
 
       ) : null}
       {loading ? <img src={spinner} alt="loading" /> : null}
       <Cart />
+      </div>
     </>
   );
 }
