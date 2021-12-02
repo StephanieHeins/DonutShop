@@ -45,6 +45,10 @@ function ProductList() {
 
   return (
     <div className="my-2">
+      <h2>Our Products:</h2>
+       <h3> Click on each donut for more information and to purchase. </h3> 
+       ~{"\n"}
+      <p> You <b>must</b> be logged in to read or write products reviews or to purchase. ~{"\n"}Thank you for shopping with us! ~{"\n"}</p>
       <h2 className="is-size-5 mb-4 has-text-weight-bold">Selection</h2>
       {state.products.length ? (
         <div className="flex-row">
