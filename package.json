@@ -17,6 +17,8 @@
     "concurrently": "^5.1.0"
   },
   "dependencies": {
-    "bulma": "^0.9.3"
+    "bulma": "^0.9.3",
+    "react-star-rating": "^1.4.2",
+    "react-star-ratings": "^2.3.0"
   }
 }

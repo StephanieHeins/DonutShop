@@ -5,6 +5,7 @@ import { useQuery } from '@apollo/client';
 import Cart from '../components/Cart';
 import ReviewList from '../components/ReviewList';
 import ReviewForm from '../components/ReviewForm';
+import StarRating from '../components/StarRating';
 
 import { useStoreContext } from '../utils/GlobalState';
 import {
@@ -138,6 +139,9 @@ return (
           </div>
         </div>
           
+        <div className="buttons is-centered"> 
+          <StarRating/>
+        </div>
           <ReviewForm productId = {currentProduct._id}/>
 
           <div className="columns">
