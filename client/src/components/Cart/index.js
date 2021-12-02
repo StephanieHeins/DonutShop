@@ -73,7 +73,7 @@ const Cart = () => {
   return (
     <div className="cart my-5 mx-5">
       <div className="close has-text-danger has-text-weight-bold" onClick={toggleCart}>
-        [ X ]
+        ❌
       </div>
       <h2 className="has-text-weight-bold has-text-centered">
         🍩Your Picks🍩
