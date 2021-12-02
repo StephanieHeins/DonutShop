@@ -56,7 +56,11 @@ export const ADD_REVIEW = gql`
       _id
       name
       description
-      image
+      price
+      quantity
+      category {
+        name
+      }
       reviews{
         reviewAuthor
         reviewText

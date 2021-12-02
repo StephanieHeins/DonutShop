@@ -8,7 +8,6 @@ import Auth from '../../utils/auth';
 
 const ReviewForm = ({ productId }) => {
 const [reviewText, setReviewText] = useState('');
-const [characterCount, setCharacterCount] = useState(0);
 
 const [addReview, { error }] = useMutation(ADD_REVIEW);
 
@@ -20,7 +19,7 @@ try {
     variables: {
         productId,
         reviewText,
-        reviewAuthor: Auth.getProfile().data.username,
+        reviewAuthor: Auth.getProfile().data.email,
     },
     });
 
@@ -33,9 +32,8 @@ try {
 const handleChange = (event) => {
 const { name, value } = event.target;
 
-if (name === 'reviewText' && value.length <= 280) {
+if (name === 'reviewText') {
     setReviewText(value);
-    setCharacterCount(value.length);
 }
 };
 

@@ -88,7 +88,6 @@ function Detail() {
 
 return (
     <>
-
   <div className="container">    
 
       {currentProduct && cart ? (
