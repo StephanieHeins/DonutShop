@@ -27,7 +27,7 @@ First, clone this repository. Navigate to the directory containing repository in
 
 ## Deployed Links:
 * [Link to GitHub Repo](https://github.com/StephanieHeins/ProductShop)
-* [Link to Heroku Deployed Application](https://github.com/StephanieHeins/ProductShop)
+* [Link to Heroku Deployed Application](https://vast-harbor-81037.herokuapp.com)
 
 ## Preview of Working Application:
 ![Screenshot of Deployed Application](./Assets/ScreenshotofDeployedApplication.PNG)
