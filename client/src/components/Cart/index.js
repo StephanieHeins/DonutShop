@@ -63,41 +63,47 @@ const Cart = () => {
   if (!state.cartOpen) {
     return (
       <div className="cart-closed" onClick={toggleCart}>
-        <span role="img" aria-label="trash">
-          🛒
+        <span role="img" aria-label="trash" >
+        <img src="https://img.icons8.com/external-sketchy-juicy-fish/64/000000/external-baked-baking-sketchy-sketchy-juicy-fish-25.png" alt="donut box"/>
         </span>
       </div>
     );
   }
 
   return (
-    <div className="cart">
-      <div className="close" onClick={toggleCart}>
-        [close]
+    <div className="cart my-5 mx-5">
+      <div className="close has-text-danger has-text-weight-bold" onClick={toggleCart}>
+        ❌
       </div>
-      <h2>Shopping Cart</h2>
+      <h2 className="has-text-weight-bold has-text-centered">
+        🍩Your Picks🍩
+      </h2>
       {state.cart.length ? (
         <div>
           {state.cart.map((item) => (
             <CartItem key={item._id} item={item} />
           ))}
 
-          <div className="flex-row space-between">
-            <strong>Total: ${calculateTotal()}</strong>
+          <div className="has-text-weight-bold has-text-centered">
+          <strong>Total: ${calculateTotal()}</strong>
+          </div>
 
             {Auth.loggedIn() ? (
-              <button onClick={submitCheckout}>Checkout</button>
+              <div className="buttons is-centered">
+              <button className="button is-primary mt-3" onClick={submitCheckout}>
+                Checkout
+              </button>
+              </div>
             ) : (
-              <span>(log in to check out)</span>
+              <span>(Log in to check out)</span>
             )}
           </div>
-        </div>
       ) : (
         <h3>
           <span role="img" aria-label="shocked">
-            😱
+            🍩
           </span>
-          You haven't added anything to your cart yet!
+          Please Select Some Donuts
         </h3>
       )}
     </div>

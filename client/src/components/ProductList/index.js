@@ -49,6 +49,7 @@ function ProductList() {
        <h3> Click on each donut for more information and to purchase. </h3> 
        ~{"\n"}
       <p> You <b>must</b> be logged in to read or write products reviews or to purchase. ~{"\n"}Thank you for shopping with us! ~{"\n"}</p>
+      <h2 className="is-size-5 mb-4 has-text-weight-bold">Selection</h2>
       {state.products.length ? (
         <div className="flex-row">
           {filterProducts().map((product) => (
@@ -63,7 +64,9 @@ function ProductList() {
           ))}
         </div>
       ) : (
-        <h3>You haven't added any products yet!</h3>
+        <h3 className="is-size-5 mb-4 has-text-weight-bold">
+          You haven't added any products yet!
+        </h3>
       )}
       {loading ? <img src={spinner} alt="loading" /> : null}
     </div>

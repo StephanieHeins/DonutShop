@@ -45,8 +45,9 @@ function CategoryMenu() {
     <div>
       <h2>Please Choose a Category </h2> 
       <h3>Then, click on each donut for more information.</h3>
+      <h2 className="is-size-4">Choose a Category</h2>
       {categories.map((item) => (
-        <button
+        <button className="button is-primary mr-2 my-3"
           key={item._id}
           onClick={() => {
             handleClick(item._id);

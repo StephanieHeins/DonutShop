@@ -29,8 +29,20 @@ const productSchema = new Schema({
   },
   reviews: [
     {
-      type: Schema.Types.ObjectId,
-      ref: 'Review',
+      reviewText: {
+        type: String,
+        required: true,
+        minlength: 1,
+      },
+      reviewAuthor: {
+        type: String,
+        required: true,
+      },
+      reviewDate: {
+        type: Date,
+        default: Date.now,
+        get: (timestamp) => dateFormat(timestamp),
+      },
     },
   ],
 });
