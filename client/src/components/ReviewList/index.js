@@ -18,7 +18,7 @@ return (
                 <h5 className="">
                 {review.reviewAuthor}: {' '}
                     <span style={{}}>
-                        Date of Review: {review.createdAt}
+                        Date of Review: {review.reviewDate}
                     </span>
                 </h5>
                 <p className="">{review.reviewText}</p>

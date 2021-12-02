@@ -112,12 +112,8 @@ function Detail() {
             alt={currentProduct.name}
           />
 
-        <div>
           <ReviewList reviews={currentProduct.reviews} />
-        </div>
-        <div>
           <ReviewForm productId={currentProduct._id}/>
-        </div>
 
         </div>
       

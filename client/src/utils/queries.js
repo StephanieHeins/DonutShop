@@ -12,6 +12,12 @@ export const QUERY_PRODUCTS = gql`
       category {
         _id
       }
+      reviews {
+        _id
+        reviewText
+        reviewAuthor
+        createdAt
+      }
     }
   }
 `;
@@ -34,6 +40,12 @@ export const QUERY_ALL_PRODUCTS = gql`
       quantity
       category {
         name
+      }
+      reviews {
+        _id
+        reviewText
+        reviewAuthor
+        createAt
       }
     }
   }

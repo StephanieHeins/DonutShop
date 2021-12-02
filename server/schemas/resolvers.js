@@ -138,36 +138,36 @@ const resolvers = {
       return { token, user };
     },
     addReview: async (parent, {productId, reviewText}, context) =>{
-      if (context.user){
-        const review = await Review.create({
-          reviewText,
-          reviewAuthor: context.user.email,
-        });
-
-        await Product.findOneAndUpdate(
-          {_id: productId},
-          { $addToSet: { reviews: review._id} }
-        );  
-        return review;
-    };
-  },
+      return Product.findOneAndUpdate(
+        { _id: productId },
+        {
+          $addToSet: {
+            reviews: { reviewText, reviewAuthor: context.user.firstName },
+          },
+        },
+        {
+          new: true,
+          runValidators: true,
+        }
+      );
+    },
     deleteReview: async (parent, {productId, reviewId}, context) => {
-      if (context.user){
-        const review = await Review.findOneAndDelete({
-          _id: reviewId,
-          reviewAuthor: context.user.email,
-        });
-
-      await Product.findOneAndUpdate(
-        {_id: productId},
-        { $pull: { reviews: review._id}}
-      );  
-
-      return review;
-    ;}
-  },
-
-  },
-};
+      if (context.user) {
+        return Product.findOneAndUpdate(
+          { _id: productId },
+          {
+            $pull: {
+              reviews: {
+                _id: reviewId,
+                commentAuthor: context.user.firstName,
+              },
+            },
+          },
+          { new: true }
+        );
+      }
+    }
+  }
+}      
 
 module.exports = resolvers;
