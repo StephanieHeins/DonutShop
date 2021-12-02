@@ -43,7 +43,8 @@ function CategoryMenu() {
 
   return (
     <div>
-      <h2>Choose a Category:</h2>
+      <h2>Please Choose a Category </h2> 
+      <h3>Then, click on each donut for more information.</h3>
       {categories.map((item) => (
         <button
           key={item._id}
