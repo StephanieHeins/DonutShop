@@ -45,7 +45,7 @@ export const QUERY_ALL_PRODUCTS = gql`
         _id
         reviewText
         reviewAuthor
-        createAt
+        createdAt
       }
     }
   }

@@ -120,8 +120,8 @@ return (
               </span>
             </header>
 
-            <div class="card-content">
-              <div class="content">
+            <div className="card-content">
+              <div className="content">
                 <p>{currentProduct.description}</p>
               </div>
             </div>
@@ -138,7 +138,7 @@ return (
           </div>
         </div>
           
-          <ReviewForm />
+          <ReviewForm productId = {currentProduct._id}/>
 
           <div className="columns">
             <div className="column is-half is-offset-one-quarter has-text-weight-bold">
@@ -146,7 +146,7 @@ return (
             </div>
           </div>
           
-          <ReviewList />
+          <ReviewList reviews = {currentProduct.reviews} />
 
       </div>
 

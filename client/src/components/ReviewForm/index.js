@@ -45,15 +45,15 @@ return (
     <div className="container">
         <div className="columns">
             <div className="column is-half is-offset-one-quarter">
+                <label>
+                    What are your thoughts on this item? 
+                </label>
                 <form
                 className="flex-row justify-center justify-space-between-md align-center"
                 onSubmit={handleFormSubmit}
                 >
-                    <label>
-                        What are your thoughts on this item? 
-                    </label>
                     <textarea 
-                        name="commentText"
+                        name="reviewText"
                         className="textarea is-primary" 
                         placeholder="Delicious!"
                         value={reviewText}
