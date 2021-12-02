@@ -5,7 +5,7 @@ import { useStoreContext } from "../../utils/GlobalState";
 import { ADD_TO_CART, UPDATE_CART_QUANTITY } from "../../utils/actions";
 import { idbPromise } from "../../utils/helpers";
 
-function DonutItem(item) {
+function ProductItem(item) {
   const [state, dispatch] = useStoreContext();
 
   const {
@@ -33,7 +33,7 @@ function DonutItem(item) {
     } else {
       dispatch({
         type: ADD_TO_CART,
-        donut: { ...item, purchaseQuantity: 1 }
+        product: { ...item, purchaseQuantity: 1 }
       });
       idbPromise('cart', 'put', { ...item, purchaseQuantity: 1 });
     }
@@ -41,7 +41,7 @@ function DonutItem(item) {
 
   return (
     <div className="card px-1 py-1">
-      <Link to={`/donuts/${_id}`}>
+      <Link to={`/products/${_id}`}>
         <img
           alt={name}
           src={`/images/${image}`}
@@ -57,4 +57,4 @@ function DonutItem(item) {
   );
 }
 
-export default DonutItem;
+export default ProductItem;

@@ -1,6 +1,6 @@
 const { Schema, model } = require('mongoose');
 
-const donutSchema = new Schema({
+const productSchema = new Schema({
   name: {
     type: String,
     required: true,
@@ -35,6 +35,6 @@ const donutSchema = new Schema({
   ],
 });
 
-const Donut = model('Donut', donutSchema);
+const Product = model('Product', productSchema);
 
-module.exports = Donut;
+module.exports = Product;
