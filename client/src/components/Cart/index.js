@@ -63,8 +63,8 @@ const Cart = () => {
   if (!state.cartOpen) {
     return (
       <div className="cart-closed" onClick={toggleCart}>
-        <span role="img" aria-label="trash">
-          🛒
+        <span role="img" aria-label="trash" >
+        <img src="https://img.icons8.com/external-sketchy-juicy-fish/64/000000/external-baked-baking-sketchy-sketchy-juicy-fish-25.png" alt="donut box"/>
         </span>
       </div>
     );
@@ -76,7 +76,7 @@ const Cart = () => {
         [ X ]
       </div>
       <h2 className="has-text-weight-bold has-text-centered">
-        ~ C A R T 🛒 ~
+        🍩Your Picks🍩
       </h2>
       {state.cart.length ? (
         <div>
@@ -101,9 +101,9 @@ const Cart = () => {
       ) : (
         <h3>
           <span role="img" aria-label="shocked">
-            😱
+            🍩
           </span>
-          You haven't added anything to your cart yet!
+          Please Select Some Donuts
         </h3>
       )}
     </div>
