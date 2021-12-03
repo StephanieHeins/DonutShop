@@ -29,10 +29,6 @@ First, clone this repository. Navigate to the directory containing repository in
 * [Link to GitHub Repo](https://github.com/StephanieHeins/ProductShop)
 * [Link to Heroku Deployed Application](https://github.com/StephanieHeins/ProductShop)
 
-## Preview of Working Application:
-![Screenshot of Deployed Application](./Assets/ScreenshotofDeployedApplication.PNG)
-![Screenshot of Deployed Application2](./Assets/ScreenshotofDeployedApplication.PNG)
-![Screenshot of Deployed Application3](./Assets/ScreenshotofDeployedApplication.PNG)
 
 ## How to Contribute:
 If you'd like to contribute to this project please send an email to eegraham4@gmail.com. Thank you for your interest!
